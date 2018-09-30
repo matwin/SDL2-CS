@@ -9,7 +9,6 @@ DEPS = \
 
 # Source Lists
 SDL2 = \
-	src/LPUtf8StrMarshaler.cs \
 	src/SDL2.cs \
 	src/SDL2_image.cs \
 	src/SDL2_mixer.cs \
@@ -94,20 +93,20 @@ MINITK = \
 # Targets
 
 debug: clean-debug
-	mkdir -p bin/debug
-	cp SDL2-CS.dll.config bin/debug
-	dmcs /unsafe -debug -out:bin/debug/SDL2-CS.dll -target:library $(SDL2) $(MINITK) $(DEPS)
+	mkdir -p bin/Debug
+	cp SDL2-CS.dll.config bin/Debug
+	dmcs /unsafe -debug -out:bin/Debug/SDL2-CS.dll -target:library $(SDL2) $(MINITK) $(DEPS)
 
 clean-debug:
-	rm -rf bin/debug
+	rm -rf bin/Debug
 
 release: clean-release
-	mkdir -p bin/release
-	cp SDL2-CS.dll.config bin/release
-	dmcs /unsafe -optimize -out:bin/release/SDL2-CS.dll -target:library $(SDL2) $(MINITK) $(DEPS)
+	mkdir -p bin/Release
+	cp SDL2-CS.dll.config bin/Release
+	dmcs /unsafe -optimize -out:bin/Release/SDL2-CS.dll -target:library $(SDL2) $(MINITK) $(DEPS)
 
 clean-release:
-	rm -rf bin/release
+	rm -rf bin/Release
 
 clean: clean-debug clean-release
 	rm -rf bin
