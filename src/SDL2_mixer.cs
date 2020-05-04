@@ -179,7 +179,7 @@ namespace SDL2
 			IntPtr src,
 			int freesrc
 		);
-		
+
 		/* IntPtr refers to a Mix_Chunk* */
 		/* This is an RWops macro in the C header. */
 		public static IntPtr Mix_LoadWAV(string file)
@@ -197,6 +197,12 @@ namespace SDL2
 		{
 			return INTERNAL_Mix_LoadMUS(SDL.UTF8_ToNative(file));
 		}
+
+        [DllImport(nativeLibName, EntryPoint = "Mix_LoadMUS_RW", CallingConvention = CallingConvention.Cdecl)]
+        public static extern IntPtr Mix_LoadMUS_RW(
+            IntPtr src,
+            int freesrc
+        );
 
 		/* IntPtr refers to a Mix_Chunk* */
 		[DllImport(nativeLibName, CallingConvention = CallingConvention.Cdecl)]
