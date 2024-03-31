@@ -212,6 +212,12 @@ namespace SDL2
 			return handle;
 		}
 
+        [DllImport(nativeLibName, EntryPoint = "Mix_LoadMUS_RW", CallingConvention = CallingConvention.Cdecl)]
+        public static extern IntPtr Mix_LoadMUS_RW(
+            IntPtr src,
+            int freesrc
+        );
+
 		/* IntPtr refers to a Mix_Chunk* */
 		[DllImport(nativeLibName, CallingConvention = CallingConvention.Cdecl)]
 		public static extern IntPtr Mix_QuickLoad_WAV(
